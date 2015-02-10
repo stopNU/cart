@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app="Main">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Webshop</title>
+	<link rel="stylesheet" href="">
+	<script src="angular/angular.min.js"></script>
+</head>
+<body>
+
+<div ng-controller="cartController">
+<h4>Cart</h4>
+<table>
+	<tr ng-repeat="cartProduct in cartProduct">
+      <td>Vare: {{ cartProduct.product.title }}</td>
+	</tr>
+</table>
+</div>
+
+<input type="search" placeholder="Search product name" ng-model="productTitle"/>
+
+<ul>
+	<li ng-repeat="category in category">
+		<input type="checkbox" ng-click="categoryChange(category.category)"> {{category.category}}
+	</li>
+</ul>
+
+<div ng-controller="productsController">
+	<table>
+		<tr>Products</tr>
+		<tr ng-repeat="product in products | filter:productTitle | filter:categoryFilter">
+			<td> {{ product.title }} </td>
+			<td> {{ product.price }} </td>
+            <td> {{ product.category }} </td>
+            <td>
+            <form ng-submit="addToCart(product)">
+            <input type="number" ng-model="quantity">
+            <button  class="btn btn-default" type="submit">Tilføj</button></td>
+            </form>
+		</tr>
+	</table>
+</div>
+
+	<script src="js/app.module.js"></script>
+
+	<script src="cart/cart.service.js"></script>
+	<script src="products/products.service.js"></script>
+
+	<script src="cart/cart.controller.js"></script>
+	<script src="products/products.controller.js"></script>
+
+</body>
+</html>
