@@ -16,6 +16,7 @@
 		var getError = function(reason) {
 			$scope.error = "Something happened with the data";
 		}
+	
 
 		$scope.categoryChange = function(category){
 			var i = $scope.categoriesSelected.indexOf(category); // -1 for not checked

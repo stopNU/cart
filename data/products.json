@@ -1,10 +1,12 @@
 [
 	{
+		"id": 1,
 		"title": "Naked Jesus",
 		"price": 25,
 		"category": "Erotic Statues"
 	},
 	{
+		"id": 2,
 		"title": "Not Naked Jesus",
 		"price": 35,
 		"category": "Statues"

@@ -2,6 +2,7 @@
 	"use strict";
 
 	var productsService = function($http){
+
 		var getProducts = function(){
 			return $http.get("data/products.json")
 							.then(function(response){
