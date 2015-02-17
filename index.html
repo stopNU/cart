@@ -5,7 +5,6 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Webshop</title>
 	<link rel="stylesheet" href="#">
-	<script src="angular/angular.min.js"></script>
 </head>
 <body>
 
@@ -19,53 +18,29 @@
 </table>
 </div>
 
-<div ng-controller="productsController">
 
-<!-- SEARCH -->
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-md-2">
-					<input type="search" placeholder="Search&hellip;" ng-model="productTitle" />
-				</div>
-			</div>
+
+<div class="container">
+		<h1>Erotiske statuer eller ej..</h1>
+
+		<div ng-view>
+
 		</div>
-		<!-- /SEARCH -->
-
-		<!-- CATEGORIES -->
-		<div class="row-group">
-			<ul>
-				<li ng-repeat="category in categories">
-					<input type="checkbox" ng-click="categoryChange(category.category)">{{category.category}}
-				</li>
-			</ul>
-		</div>
-		<!-- /CATEGORIES -->
+		
+	</div>
 
 
 
-	<table>
-		<tr>Products</tr>
-		<tr ng-repeat="product in products | filter:productTitle | filter:categoryFilter">
-			<td> {{ product.title }} </td>
-			<td> {{ product.price }} </td>
-            <td> {{ product.category }} </td>
-            <td>
-            <form ng-submit="addToCart(product)">
-            <input type="number" ng-model="quantity">
-            <button class="btn btn-default" type="submit">Tilføj</button>
-            </form>
-            </td>
-		</tr>
-	</table>
-</div>
-
+	<script src="angular/angular.min.js"></script>
+	<script src="angular/angular-route.min.js" type="text/javascript"></script>
 	<script src="app.module.js"></script>
 
-	<script src="cart/cart.service.js"></script>
-	<script src="products/products.service.js"></script>
 
 	<script src="cart/cart.controller.js"></script>
 	<script src="products/products.controller.js"></script>
+	<script src="products/product.controller.js"></script>
 
+	<script src="cart/cart.service.js"></script>
+	<script src="products/products.service.js"></script>
 </body>
 </html>
