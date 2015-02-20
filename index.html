@@ -9,14 +9,14 @@
 </head>
 <body>
 
-<!-- <a ng-click="$back()">Back</a> -->
+<a href back-button>Go back</a>
 
 <div ng-controller="cartController" class="cart">
 <h4>Cart</h4>
 <table>
 	<tr ng-repeat="cartProduct in cartProducts">
-      <td>Vare: {{ cartProduct.product.title }}</td>
-      <td>Vare: {{ cartProduct.quantity }}</td>   
+      <td>Item: {{ cartProduct.product.title }}</td>
+      <td>Quantity: {{ cartProduct.quantity }}</td>   
 	</tr>
 </table>
 <a ng-href="#/checkout">Checkout</a>

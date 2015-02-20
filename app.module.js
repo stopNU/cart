@@ -22,15 +22,21 @@
                                 controller: 'cartController'
                         })
         		.otherwise({ redirectTo: '/' });
-                });
+                })
+                .directive('backButton', function(){
+                        return {
+                                restrict: 'A',
 
-                // function appCtrl($scope){
-                //         $scope.$back = function() { 
-                //                 window.history.back();
-                //         }
-                // }
-        
-                
+                                link: function(scope, element, attrs) {
+                                        element.bind('click', goBack);
+
+                                function goBack() {
+                                        history.back();
+                                        scope.$apply();
+                                        }
+                                }
+                        }
+                });   
 
 
 
