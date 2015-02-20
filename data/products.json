@@ -3,13 +3,15 @@
 		"id": "naked-jesus",
 		"title": "Naked Jesus",
 		"price": 25,
-		"category": "Erotic Statues"
+		"category": "Erotic Statues",
+		"image": "egyptian-cat.jpg"
 	},
 	{
 		"id": "not-naked-jesus",
 		"title": "Not Naked Jesus",
 		"price": 35,
-		"category": "Statues"
+		"category": "Statues",
+		"image": "egyptian-cat.jpg"
 	}
 ]
 

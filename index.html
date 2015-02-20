@@ -4,25 +4,28 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Webshop</title>
-	<link rel="stylesheet" href="#">
+	<!-- <link rel="stylesheet" href="css/reset.css"> -->
+	<link rel="stylesheet" href="css/stylesheet.css">
 </head>
 <body>
 
-<div ng-controller="cartController">
+<!-- <a ng-click="$back()">Back</a> -->
+
+<div ng-controller="cartController" class="cart">
 <h4>Cart</h4>
 <table>
 	<tr ng-repeat="cartProduct in cartProducts">
       <td>Vare: {{ cartProduct.product.title }}</td>
-      <td>Vare: {{ cartProduct.quantity }}</td>
+      <td>Vare: {{ cartProduct.quantity }}</td>   
 	</tr>
 </table>
+<a ng-href="#/checkout">Checkout</a>
 </div>
 
 
 
 <div class="container">
-		<h1>Erotiske statuer eller ej..</h1>
-
+		
 		<div ng-view>
 
 		</div>

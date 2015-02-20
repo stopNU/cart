@@ -20,7 +20,7 @@
 		</div>
 		<!-- /CATEGORIES -->
 
-
+		<h1>Erotiske statuer eller ej..</h1>
 
 	<table>
 		<tr>Products</tr>
@@ -28,6 +28,7 @@
 			<td><a ng-href="#/product/{{ product.id }}"> {{ product.title }} </a></td>
 			<td> {{ product.price }} </td>
             <td> {{ product.category }} </td>
+            <td><img src="img/{{ product.image }}"></td>
             <td>
             <form ng-submit="addToCart(product)">
             <input type="number" ng-model="quantity">
