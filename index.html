@@ -4,27 +4,29 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Webshop</title>
-	<!-- <link rel="stylesheet" href="css/reset.css"> -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/stylesheet.css">
+	<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 </head>
 <body>
 
-<a href back-button>Go back</a>
-
 <div ng-controller="cartController" class="cart">
-<h4>Cart</h4>
-<table>
-	<tr ng-repeat="cartProduct in cartProducts">
-      <td>Item: {{ cartProduct.product.title }}</td>
-      <td>Quantity: {{ cartProduct.quantity }}</td>   
-	</tr>
-</table>
-<a ng-href="#/checkout">Checkout</a>
+	<h3>Cart</h3>
+		<table>
+			<tr ng-repeat="cartProduct in cartProducts">
+      			<td>Item: {{ cartProduct.product.title }}</td>
+      			<td>Quantity: {{ cartProduct.quantity }}</td>   
+			</tr>
+		</table>
+		<button class="btn btn-default"><a ng-href="#/checkout" class="button">Checkout</a></button>
+		<button class="btn btn-default" data-toggle="modal" data-target="#cart">Show cart</button>
 </div>
 
 
 
 <div class="container">
+	<a href back-button class="button">Go back</a>
 		
 		<div ng-view>
 
@@ -33,6 +35,27 @@
 	</div>
 
 
+	<!-- MODAL OVERLAY CART -->
+	<div class="modal fade" id="cart">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4>Cart contains:</h4>
+				</div>
+				<div class="modal-body">
+							<table>
+			<tr ng-repeat="cartProduct in cartProducts">
+      			<td>Item: {{ cartProduct.product.title }}</td>
+      			<td>Quantity: {{ cartProduct.quantity }}</td>   
+			</tr>
+			<button class="btn btn-default" style="margin-right:5px;"><a ng-href="#/checkout" class="button">Continue to checkout</a></button>
+			<button class="btn btn-default" data-toggle="modal" data-target="#cart">I am not done!</button>
+		</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- /MODAL OVERLAY CART -->
 
 	<script src="angular/angular.min.js"></script>
 	<script src="angular/angular-route.min.js" type="text/javascript"></script>

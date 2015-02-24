@@ -11,30 +11,27 @@
 		<!-- /SEARCH -->
 
 		<!-- CATEGORIES -->
-		<div class="row-group">
+		<div class="row">
 			<ul>
-				<li ng-repeat="category in categories">
+				<li ng-repeat="category in categories" class="checkbox">
 					<input type="checkbox" ng-click="categoryChange(category.category)">{{category.category}}
 				</li>
 			</ul>
 		</div>
 		<!-- /CATEGORIES -->
 
-		<h1>Erotiske statuer eller ej..</h1>
+		<h1>Buy one of our amazing statues here!</h1>
 
-	<table>
-		<tr>Products</tr>
-		<tr ng-repeat="product in products | filter:productTitle | filter:productFilter">
-			<td><a ng-href="#/product/{{ product.id }}"> {{ product.title }} </a></td>
-			<td> {{ product.price }} </td>
-            <td> {{ product.category }} </td>
-            <td><img src="img/{{ product.image }}"></td>
-            <td>
-            <form ng-submit="addToCart(product)">
+		<div ng-repeat="product in products | filter:productTitle | filter:productFilter" class="items">
+			<p>Item: <a ng-href="#/product/{{ product.id }}"> {{ product.title }} </a></p>
+			<p>Price: {{ product.price }}</p>
+			<p>Category: {{ product.category }}</p>
+			<img src="img/{{ product.image }}">
+			<form ng-submit="addToCart(product)">
             <input type="number" ng-model="quantity">
-            <button class="btn btn-default" type="submit">Tilføj</button>
+            <button class="button" type="submit">Buy</button>
             </form>
-            </td>
-		</tr>
-	</table>
+		</div>
+
+
 </div>
