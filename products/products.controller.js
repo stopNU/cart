@@ -5,7 +5,7 @@
           .module("Main.products", [])
           .controller('productsController', productsController);
 
-          function productsController($scope, productsService, cartService){
+          function productsController($scope, productsService, cartService, $rootScope){
                
                var modelProducts = function(data){
                     $scope.products = data;
@@ -15,7 +15,7 @@
                     $scope.categories = data;
                }
 
-                $scope.addToCart = function(product){
+               $scope.addToCart = function(product){
                   var quantity = this.quantity;
                   cartService.addProductsToCart(product, quantity);
                }

@@ -31,3 +31,16 @@
 	margin: 5px;
 	display: inline-block;
 }
+
+.userForm 	{
+	max-width: 400px;
+	border-radius: 10px;
+	border: 1px solid black;
+	padding: 10px;
+}
+
+.products	{
+	border: 1px solid black;
+	margin-top: 20px;
+	display: inline-block;
+}

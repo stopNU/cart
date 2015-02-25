@@ -5,7 +5,18 @@
 		.module("Main.cart", [])
 		.controller("cartController", cartController);
 
-		function cartController($scope){
+		function cartController($rootScope, $scope, cartService){
+
+   		$scope.deleteProd = function(cartProduct){
+			cartService.delProd(cartProduct);
+		};
+
+		$scope.sendCust = function(customer){
+                  var custEmail = this.custEmail;
+                  var custName = this.custName;
+                  console.log(custEmail, custName);
+                  cartService.sendCustData(custEmail, custName);
+               }
 
 		}
 	

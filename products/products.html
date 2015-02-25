@@ -23,6 +23,7 @@
 		<h1>Buy one of our amazing statues here!</h1>
 
 		<div ng-repeat="product in products | filter:productTitle | filter:productFilter" class="items">
+		
 			<p>Item: <a ng-href="#/product/{{ product.id }}"> {{ product.title }} </a></p>
 			<p>Price: {{ product.price }}</p>
 			<p>Category: {{ product.category }}</p>

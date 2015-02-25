@@ -6,6 +6,7 @@
                 // .controller("appCtrl", appCtrl)
 		.run(function($rootScope){
 			$rootScope.cartProducts = {};
+                        // $rootScope.cartProduct = {};
 		})
 		.config(function($routeProvider){
         	$routeProvider

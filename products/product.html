@@ -1,4 +1,9 @@
+
 <h2>Item: {{ product.title }}</h2>
 <p>Price: {{ product.price }}</p>
 <p>Category: {{ product.category}}</p>
 <img src="img/{{ product.image }}">
+	<form ng-submit="addToCart(product)">
+    	<input type="number" ng-model="quantity">
+        <button class="button" type="submit">Buy</button>
+    </form>
