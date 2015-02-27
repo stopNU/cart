@@ -2,6 +2,7 @@
 	"use strict";
 
 	var cartService = function($http, $rootScope){
+		
 		var addProductsToCart = function(product, quantity){
 			$rootScope.cartProducts[product.title] = {
 				product: product,
@@ -20,14 +21,14 @@
 			}	
 
 		}
-
-		var sendCustData = function(custEmail, custName){
-			var emptyArray = [];
-			$rootScope.emptyArray = {
+		// Trying to put customer data in array (not working)
+		var sendCustData = function(customer, custEmail, custName){
+			
+			$rootScope.customer = {
 				custEmail: custEmail,
 				custName: custName
 			}
-			console.log(emptyArray);
+			console.log(customer);
 		}		
 
 		var deleteProd = function(cartProduct){
