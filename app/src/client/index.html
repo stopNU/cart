@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html ng-app="Main">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Webshop</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/stylesheet.css">
+	<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+
+
+<div ng-controller="cartController" class="cart">
+	<h3>Cart</h3>
+		<div ng-repeat="cartProduct in cartProducts">
+      			<p>Item: {{ cartProduct.product.title }}</p>
+      			<p>Quantity: {{ cartProduct.quantity }}</p>
+		</div>
+		<button class="btn btn-default"><a ng-href="#/checkout" class="button">Checkout</a></button>
+		<button class="btn btn-default" data-toggle="modal" data-target="#cart">Show cart</button>
+</div>
+
+
+
+<div class="container">
+	<a href back-button class="btn btn-default" style="margin: 10px 10px 10px 0px;">Go back</a>
+		
+		<!-- <div ng-controller="productsController">
+			<product-widget></product-widget>
+		</div> -->
+
+		<div ng-view></div>
+		
+	</div>
+
+
+	<!-- MODAL OVERLAY CART -->
+	<div class="modal fade" id="cart">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4>Cart contains:</h4>
+				</div>
+				<div class="modal-body">
+							<table>
+			<div ng-repeat="cartProduct in cartProducts">
+
+      			<p>Item: {{ cartProduct.product.title }}</p>
+      			<p>Quantity: {{ cartProduct.quantity }}</p>
+      			<button ng-click="moreProd(cartProduct.product)" class="btn">+</button>
+      			<button ng-click="lessProd(cartProduct.product)" class="btn">-</button>   
+			</div>
+			<button class="btn btn-default" style="margin-right:5px;" data-target="#cart" data-toggle="modal"><a ng-href="#/checkout" class="button">Continue to checkout</a></button>
+			<button class="btn btn-default" data-toggle="modal" data-target="#cart">I am not done!</button>
+		</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- /MODAL OVERLAY CART -->
+
+	<script src="angular/angular.min.js"></script>
+	<script src="angular/angular-route.min.js" type="text/javascript"></script>
+	<script src="app.module.js"></script>
+
+
+	<script src="cart/cart.controller.js"></script>
+	<script src="products/products.controller.js"></script>
+	<script src="products/product.controller.js"></script>
+	<script src="admin/admin.controller.js"></script>
+
+	<script src="cart/cart.service.js"></script>
+	<script src="products/products.service.js"></script>
+	<script src="admin/admin.service.js"></script>
+</body>
+</html>

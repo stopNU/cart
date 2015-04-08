@@ -1,0 +1,14 @@
+<div>
+
+<div ng-repeat="product in products" class="items">
+		
+			<p>Item: <a ng-href="#/product/{{ product.id }}"> {{ product.title }} </a></p>
+			<p>Price: {{ product.price }}</p>
+			<p>Category: {{ product.category }}</p>
+			<img src="img/{{ product.image }}">
+			<form ng-submit="deleteProducts(product)">
+            <button class="button" type="submit">delete</button>
+			</form>			
+		</div>
+
+</div>
