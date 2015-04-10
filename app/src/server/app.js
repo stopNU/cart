@@ -17,17 +17,24 @@ app.use(express.static(path.join(__dirname, '../client')));
 // Routes set up
 var router 	= express.Router();
 var product = require('./controllers/api/product');
+var order 	= require('./controllers/api/order');
+// add categories!!!
 
 // Get all products
 router.get('/api/products', product.getAll);
+// Get single product
+router.get('/api/productById/:id', product.readById);
+// Get all orders
+router.get('/api/orders', order.getAll);
 // Create a product
 router.post('/api/product', product.create);
-// Request product by Id
-router.get('/api/productById/:id', product.readById);
+// Create an order
+router.post('/api/order', order.create);
 
 // Get one product, update one product, delete one product
 router.route('/api/product/:id')
 	.get(product.read)
+	//.post(product.create)
 	.put(product.update)
 	.delete(product.delete);
 

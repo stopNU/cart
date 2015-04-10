@@ -30,6 +30,10 @@
                                 templateUrl: '/admin/admin.html',
                                 controller: 'adminController'
                         })
+                        .when('/order-confirm', {
+                        templateUrl:"/cart/orderConfirm.html",
+                        controller:""
+                })
         		.otherwise({ redirectTo: '/' });
                 })
                 .directive('backButton', function(){

@@ -21,24 +21,35 @@
 			}	
 
 		}
-		// Trying to put customer data in array (not working)
-		var sendCustData = function(customer, custEmail, custName){
-			
-			$rootScope.customer = {
-				custEmail: custEmail,
-				custName: custName
-			}
-			console.log(customer);
-		}		
 
 		var deleteProd = function(cartProduct){
 			delete $rootScope.cartProducts[cartProduct.title];
 		}		
 
+		var confirmCart = function(custName, custEmail){
+				$rootScope.confirmedOrder = {};
+
+				// Her sendes en request om at gemme i databasen (bruger api'en, og api'en er knyttet til schema)
+				$http.post('api/order', {
+					"custName": custName,
+					"custEmail": custEmail,
+					"Products": new Array($rootScope.cartProducts)
+				});
+
+				// Her oprettes der et objekt til midlertidligt at vise data
+				$rootScope.confirmedOrder["custBasket"] = {
+					"Customer": {custName: 
+									{"custName": custName,
+									 "custEmail": custEmail}
+								},
+					"products": $rootScope.cartProducts
+				}
+				console.log($rootScope.confirmedOrder);
+			}
 		return	 {
 			addProductsToCart: addProductsToCart,
 			deleteProd: deleteProd,
-			sendCustData: sendCustData
+			confirmCart: confirmCart
 		}
 	}
 
