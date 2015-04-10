@@ -4,7 +4,7 @@
      angular
           .module("Main.products", [])
           .controller('productsController', productsController)
-          .directive("productWidget", productWidget);
+          // .directive("productWidget", productWidget);
 
           function productsController($scope, productsService, cartService, $rootScope){
                
@@ -33,9 +33,9 @@
                $scope.categoriesSelected = productsService.getCategoriesSelected();
           }
 
-          $scope.productFilter = function(product){
-               return productsService.productFilter(product);
-          }
+          // $scope.productFilter = function(product){
+          //      return productsService.productFilter(product);
+          // }
 
           $scope.categoryChange = function(category){
                productsService.categoryChange(category);
@@ -45,19 +45,19 @@
           updateCategoriesSelected();
      }
 
-     function productWidget(){
-          var widget = {
-               templateUrl: "./products/product.widget.html",
-               restrict: "E",
-               controller: function($scope){
-                    $scope.buyme = function(product){
-                         console.log(product);
-                         $scope.addToCart(product);
-                    }
-               }
-          }
+     // function productWidget(){
+     //      var widget = {
+     //           templateUrl: "./products/product.widget.html",
+     //           restrict: "E",
+     //           controller: function($scope){
+     //                $scope.buyme = function(product){
+     //                     console.log(product);
+     //                     $scope.addToCart(product);
+     //                }
+     //           }
+     //      }
 
-          return widget;
-     } 
+     //      return widget;
+     // } 
 
 }());

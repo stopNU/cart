@@ -1,25 +1,34 @@
 	(function(){
 	"use strict";
 
-	var adminService = function($http){
+	var adminService = function($http, $rootScope, productsService){
 
-		var products           = [];
+		var deleteProduct = function(id){
+			$http.delete('/api/product/' + id);
+		}
 
-		var getProducts = function(){
-			return $http.get("/api/products")
+		var getProductById = function(id){
+
+			return $http.get("/api/productById/" + id)
 						.then(function(response){
-							return response.data;
-						})
-		};
+								return response.data;
+				});
+		}
 
-		var deleteProducts = function(product){
-			delete("/api/products/:id");
-		};
+		var getProduct = function(id){
 
+			return $http.get("/api/product/" + id)
+						.then(function(response){
+								//setProducts(response.data)
+								return response.data;
+				})
+		}
+		
 
 		return {
-			getProducts: getProducts,
-			deleteProducts: deleteProducts
+			getProduct: getProduct,
+			getProductById: getProductById,
+			deleteProduct: deleteProduct
 		}
 
 

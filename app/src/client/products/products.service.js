@@ -1,29 +1,29 @@
 	(function(){
-	"use strict";
 
 	var productsService = function($http){
 
-		var categoriesSelected = [],
-			products           = [];
+		var categoriesSelected = [];
 
 		var getProducts = function(){
 			return $http.get("/api/products")
 						.then(function(response){
+							setProducts(response.data)
 							return response.data;
 						})
+						
 		};
 
 		var setProducts = function(data){
 			products = data;
 		}
 
-		var getProduct = function(id){
-			return findProductInArray(products, id);
+		var getProduct = function(title){
+			return findProductInArray(products, title);
 		}
 		
-		var findProductInArray = function(data, id){
+		var findProductInArray = function(data, title){
 			return data.filter(function(element){
-				if(element.id === id){
+				if(element.name === title){
 					return element;
 				}
 			});
@@ -52,14 +52,14 @@
 
         };
 
-		var productFilter = function(product){
-            if (categoriesSelected.length > 0) {
-                if (categoriesSelected.indexOf(product.category) < 0){
-                    return;
-                }
-            }
-            return product;
-        } 
+		// var productFilter = function(product){
+  //           if (categoriesSelected.length > 0) {
+  //               if (categoriesSelected.indexOf(product.category) < 0){
+  //                   return;
+  //               }
+  //           }
+  //           return product;
+  //       } 
 
 		return {
 			getProducts: getProducts,
@@ -67,7 +67,7 @@
 			getCategories: getCategories,
 			getCategoriesSelected: getCategoriesSelected,
 			categoryChange: categoryChange,
-			productFilter: productFilter
+			// productFilter: productFilter
 		}
 	}
 

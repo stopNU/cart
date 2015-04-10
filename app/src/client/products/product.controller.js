@@ -6,7 +6,7 @@
 
 	function productController($scope, productsService, $routeParams, cartService){
 
-		var productArray = productsService.getProduct($routeParams.id);
+		var productArray = productsService.getProduct($routeParams.title);
 		$scope.product = productArray[0];
 
 		$scope.addToCart = function(product){

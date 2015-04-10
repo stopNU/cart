@@ -10,7 +10,7 @@
 		})
 		.config(function($routeProvider){
         	$routeProvider
-        		.when('/product/:id', {
+        		.when('/product/:_id', {
         			templateUrl: './products/product.html',
         			controller: 'productController'
         		})
@@ -21,6 +21,10 @@
                         .when('/checkout', {
                                 templateUrl: '/cart/checkout.html',
                                 controller: 'cartController'
+                        })
+                        .when('/admin/edit/:id', {
+                                templateUrl:"admin/adminEdit.html",
+                                controller:"adminController"
                         })
                         .when('/admin', {
                                 templateUrl: '/admin/admin.html',

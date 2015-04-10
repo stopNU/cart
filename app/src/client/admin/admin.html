@@ -6,9 +6,8 @@
 			<p>Price: {{ product.price }}</p>
 			<p>Category: {{ product.category }}</p>
 			<img src="img/{{ product.image }}">
-			<form ng-submit="deleteProducts(product)">
-            <button class="button" type="submit">delete</button>
-			</form>			
+				<button class="btn btn-warning"><a href="#/admin/edit/{{product._id}}" style="color:white;">Edit </a></button>
+				<button class="btn btn-danger" ng-click="delete(product._id)">Delete</button>
 		</div>
 
 </div>

@@ -22,6 +22,8 @@ var product = require('./controllers/api/product');
 router.get('/api/products', product.getAll);
 // Create a product
 router.post('/api/product', product.create);
+// Request product by Id
+router.get('/api/productById/:id', product.readById);
 
 // Get one product, update one product, delete one product
 router.route('/api/product/:id')
